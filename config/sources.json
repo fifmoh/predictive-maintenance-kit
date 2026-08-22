@@ -1,0 +1,14 @@
+{
+  "cmapss": {
+    "dataset_url": "https://data.nasa.gov/dataset/cmapss-jet-engine-simulated-data",
+    "resource_url": "https://data.nasa.gov/dataset/cmapss-jet-engine-simulated-data/resource/5224bcd1-ad61-490b-93b9-2817288accb8",
+    "archive": "CMAPSSData.zip",
+    "license": "NASA Open Data terms",
+    "subset": "FD001"
+  },
+  "ai4i": {
+    "dataset_url": "https://archive.ics.uci.edu/dataset/601/ai4i+2020+predictive+maintenance+dataset",
+    "license": "CC BY 4.0",
+    "target": "Machine failure"
+  }
+}

@@ -1,0 +1,10 @@
+flowchart LR
+ N[NASA FD001] --> I[Hash-sorted engine IDs]
+ I --> T[70 train]
+ I --> V[15 validation]
+ I --> P[15 sealed policy test]
+ T --> M[Train-only preprocessing + models]
+ V --> H[Model and threshold selection]
+ M --> H
+ H --> P
+ U[UCI AI4I] --> X[Fixed 70/15/15 transfer study]
