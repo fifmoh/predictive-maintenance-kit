@@ -1,5 +1,6 @@
 name: ci
 on:
+  workflow_dispatch:
   push:
   pull_request:
 permissions:
@@ -13,6 +14,14 @@ jobs:
         with:
           version: "0.12.5"
           python-version: "3.11"
+      - name: Fetch pinned researchops wheel
+        run: |
+          curl -fsSL -o "$RUNNER_TEMP/researchops-0.1.0-py3-none-any.whl" \
+            "https://raw.githubusercontent.com/fifmoh/mlops-research-starter/main/dist/researchops-0.1.0-py3-none-any.whl"
+          echo "85df90cf107b3d9c1a2bc128cc8cd19282cd4528b31c501395523fd85c13fe0b  $RUNNER_TEMP/researchops-0.1.0-py3-none-any.whl" | shasum -a 256 -c -
       - run: make setup
+        env:
+          RESEARCHOPS_WHEEL: ${{ runner.temp }}/researchops-0.1.0-py3-none-any.whl
+          RESEARCHOPS_SHA256: 85df90cf107b3d9c1a2bc128cc8cd19282cd4528b31c501395523fd85c13fe0b
       - run: make check test docs smoke
       - run: uv run cyclonedx-py environment --output-format JSON -o sbom.cdx.json
