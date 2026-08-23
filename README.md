@@ -16,6 +16,9 @@ See [data lineage](docs/diagrams/data-lineage.mmd).
 ```sh
 export RESEARCHOPS_WHEEL=../mlops-research-starter/dist/researchops-0.1.0-py3-none-any.whl
 export RESEARCHOPS_SHA256=85df90cf107b3d9c1a2bc128cc8cd19282cd4528b31c501395523fd85c13fe0b
+# No sibling clone? Fetch the pinned wheel instead (verify against RESEARCHOPS_SHA256):
+# curl -fsSL -o researchops-0.1.0-py3-none-any.whl https://raw.githubusercontent.com/fifmoh/mlops-research-starter/main/dist/researchops-0.1.0-py3-none-any.whl
+# export RESEARCHOPS_WHEEL=$PWD/researchops-0.1.0-py3-none-any.whl
 make setup leakage-check reproduce
 make run
 ```
